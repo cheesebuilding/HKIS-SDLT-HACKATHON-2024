@@ -21,9 +21,6 @@
 
 - **User Authentication:** Secure login and registration system for users.
 - **Lost Item Posting:** Users can easily post details about lost items, including where they were found and where they should be retrieved.
-- **Search and Filter:** Convenient search and filter options to help users find lost items.
-- **User Profile:** Personalized user profiles to manage posted items and view activity history.
-- **Notifications:** Real-time notifications to inform users about updates on their posted items.
 
 ## Screenshots
 
