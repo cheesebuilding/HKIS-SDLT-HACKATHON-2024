@@ -1,7 +1,7 @@
 <h1 align="center">Lost Then Found App for HKIS-SDLTH-HACKATHON-2024</h1>
 
 <p align="center">
-  <img src="HKIS-SDLT-HACKATHON-2024/AppScreenshots/main_app_screenshot.png" alt="App Screenshot" width="100">
+  <img src="HKIS-SDLT-HACKATHON-2024/AppScreenshots/main_app_screenshot.png" alt="App Screenshot" width="150">
 </p>
 
 <p align="center">
@@ -22,7 +22,7 @@
 ## Screenshots
 
 <p align="center">
-  <img src="HKIS-SDLT-HACKATHON-2024/AppScreenshots/secondary_screenshot" alt="Screenshot 1" width="100">
+  <img src="HKIS-SDLT-HACKATHON-2024/AppScreenshots/secondary_app_screenshot.png" alt="Screenshot 1" width="100">
 </p>
 
 ## Installation
