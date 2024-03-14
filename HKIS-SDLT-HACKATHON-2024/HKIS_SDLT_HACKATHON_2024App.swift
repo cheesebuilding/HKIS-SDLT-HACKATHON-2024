@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import CoreData
 
 @main
 struct HKIS_SDLT_HACKATHON_2024App: App {
+
     var body: some Scene {
         WindowGroup {
             ContentView()

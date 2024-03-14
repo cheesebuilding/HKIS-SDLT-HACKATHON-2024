@@ -14,6 +14,12 @@
 		9D0D00682B9413BE0015EB51 /* HKIS_SDLT_HACKATHON_2024Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0D00672B9413BE0015EB51 /* HKIS_SDLT_HACKATHON_2024Tests.swift */; };
 		9D0D00722B9413BE0015EB51 /* HKIS_SDLT_HACKATHON_2024UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0D00712B9413BE0015EB51 /* HKIS_SDLT_HACKATHON_2024UITests.swift */; };
 		9D0D00742B9413BE0015EB51 /* HKIS_SDLT_HACKATHON_2024UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0D00732B9413BE0015EB51 /* HKIS_SDLT_HACKATHON_2024UITestsLaunchTests.swift */; };
+		9DAF7EB12B9D9C16004FBA3F /* ClaimedItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAF7EB02B9D9C16004FBA3F /* ClaimedItemsView.swift */; };
+		9DE5FF3D2B9B3739006567C6 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE5FF3C2B9B3739006567C6 /* LoginView.swift */; };
+		9DE5FF3F2B9B380E006567C6 /* UserCredentials.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DE5FF3E2B9B380E006567C6 /* UserCredentials.json */; };
+		9DE5FF412B9B3A88006567C6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE5FF402B9B3A88006567C6 /* MainView.swift */; };
+		9DE5FF432B9C5DFF006567C6 /* CreatePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE5FF422B9C5DFF006567C6 /* CreatePostView.swift */; };
+		9DE5FF452B9C6BC2006567C6 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE5FF442B9C6BC2006567C6 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +50,12 @@
 		9D0D006D2B9413BE0015EB51 /* HKIS-SDLT-HACKATHON-2024UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HKIS-SDLT-HACKATHON-2024UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D0D00712B9413BE0015EB51 /* HKIS_SDLT_HACKATHON_2024UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKIS_SDLT_HACKATHON_2024UITests.swift; sourceTree = "<group>"; };
 		9D0D00732B9413BE0015EB51 /* HKIS_SDLT_HACKATHON_2024UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKIS_SDLT_HACKATHON_2024UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9DAF7EB02B9D9C16004FBA3F /* ClaimedItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaimedItemsView.swift; sourceTree = "<group>"; };
+		9DE5FF3C2B9B3739006567C6 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		9DE5FF3E2B9B380E006567C6 /* UserCredentials.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = UserCredentials.json; sourceTree = "<group>"; };
+		9DE5FF402B9B3A88006567C6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		9DE5FF422B9C5DFF006567C6 /* CreatePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostView.swift; sourceTree = "<group>"; };
+		9DE5FF442B9C6BC2006567C6 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,10 +106,17 @@
 		9D0D00552B9413BB0015EB51 /* HKIS-SDLT-HACKATHON-2024 */ = {
 			isa = PBXGroup;
 			children = (
+				9DE5FF3E2B9B380E006567C6 /* UserCredentials.json */,
+				9DA997E82B9ED8D7002695B9 /* Data */,
 				9D0D00562B9413BB0015EB51 /* HKIS_SDLT_HACKATHON_2024App.swift */,
 				9D0D00582B9413BB0015EB51 /* ContentView.swift */,
 				9D0D005A2B9413BE0015EB51 /* Assets.xcassets */,
 				9D0D005C2B9413BE0015EB51 /* Preview Content */,
+				9DE5FF3C2B9B3739006567C6 /* LoginView.swift */,
+				9DE5FF402B9B3A88006567C6 /* MainView.swift */,
+				9DE5FF422B9C5DFF006567C6 /* CreatePostView.swift */,
+				9DE5FF442B9C6BC2006567C6 /* ImagePicker.swift */,
+				9DAF7EB02B9D9C16004FBA3F /* ClaimedItemsView.swift */,
 			);
 			path = "HKIS-SDLT-HACKATHON-2024";
 			sourceTree = "<group>";
@@ -125,6 +144,13 @@
 				9D0D00732B9413BE0015EB51 /* HKIS_SDLT_HACKATHON_2024UITestsLaunchTests.swift */,
 			);
 			path = "HKIS-SDLT-HACKATHON-2024UITests";
+			sourceTree = "<group>";
+		};
+		9DA997E82B9ED8D7002695B9 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +259,7 @@
 			files = (
 				9D0D005E2B9413BE0015EB51 /* Preview Assets.xcassets in Resources */,
 				9D0D005B2B9413BE0015EB51 /* Assets.xcassets in Resources */,
+				9DE5FF3F2B9B380E006567C6 /* UserCredentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +284,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DE5FF432B9C5DFF006567C6 /* CreatePostView.swift in Sources */,
+				9DE5FF3D2B9B3739006567C6 /* LoginView.swift in Sources */,
+				9DE5FF412B9B3A88006567C6 /* MainView.swift in Sources */,
+				9DE5FF452B9C6BC2006567C6 /* ImagePicker.swift in Sources */,
+				9DAF7EB12B9D9C16004FBA3F /* ClaimedItemsView.swift in Sources */,
 				9D0D00592B9413BB0015EB51 /* ContentView.swift in Sources */,
 				9D0D00572B9413BB0015EB51 /* HKIS_SDLT_HACKATHON_2024App.swift in Sources */,
 			);
