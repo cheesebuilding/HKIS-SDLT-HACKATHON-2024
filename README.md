@@ -12,9 +12,6 @@
   <a href="#key-features">Key Features</a> •
   <a href="#screenshots">Screenshots</a> •
   <a href="#installation">Installation</a> •
-  <a href="#usage">Usage</a> •
-  <a href="#contributing">Contributing</a> •
-  <a href="#license">License</a>
 </p>
 
 ## Key Features
@@ -25,7 +22,7 @@
 ## Screenshots
 
 <p align="center">
-  <img src="HKIS-SDLT-HACKATHON-2024/AppScreenshots/secondary_app_screenshot" alt="Screenshot 1" width="100">
+  <img src="HKIS-SDLT-HACKATHON-2024/AppScreenshots/secondary_screenshot" alt="Screenshot 1" width="100">
 </p>
 
 ## Installation
