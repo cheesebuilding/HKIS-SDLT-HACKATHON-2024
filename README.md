@@ -22,7 +22,7 @@
 ## Screenshots
 
 <p align="center">
-  <img src="HKIS-SDLT-HACKATHON-2024/AppScreenshots/secondary_app_screenshot.png" alt="Screenshot 1" width="100">
+  <img src="HKIS-SDLT-HACKATHON-2024/AppScreenshots/secondary_app_screenshot.png" alt="Screenshot 1" width="150">
 </p>
 
 ## Installation
