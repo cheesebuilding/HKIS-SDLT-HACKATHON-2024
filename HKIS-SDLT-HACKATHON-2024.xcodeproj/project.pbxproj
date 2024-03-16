@@ -14,7 +14,6 @@
 		9D0D00682B9413BE0015EB51 /* HKIS_SDLT_HACKATHON_2024Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0D00672B9413BE0015EB51 /* HKIS_SDLT_HACKATHON_2024Tests.swift */; };
 		9D0D00722B9413BE0015EB51 /* HKIS_SDLT_HACKATHON_2024UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0D00712B9413BE0015EB51 /* HKIS_SDLT_HACKATHON_2024UITests.swift */; };
 		9D0D00742B9413BE0015EB51 /* HKIS_SDLT_HACKATHON_2024UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0D00732B9413BE0015EB51 /* HKIS_SDLT_HACKATHON_2024UITestsLaunchTests.swift */; };
-		9DAF7EB12B9D9C16004FBA3F /* ClaimedItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAF7EB02B9D9C16004FBA3F /* ClaimedItemsView.swift */; };
 		9DE5FF3D2B9B3739006567C6 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE5FF3C2B9B3739006567C6 /* LoginView.swift */; };
 		9DE5FF3F2B9B380E006567C6 /* UserCredentials.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DE5FF3E2B9B380E006567C6 /* UserCredentials.json */; };
 		9DE5FF412B9B3A88006567C6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE5FF402B9B3A88006567C6 /* MainView.swift */; };
@@ -52,7 +51,6 @@
 		9D0D006D2B9413BE0015EB51 /* HKIS-SDLT-HACKATHON-2024UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HKIS-SDLT-HACKATHON-2024UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D0D00712B9413BE0015EB51 /* HKIS_SDLT_HACKATHON_2024UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKIS_SDLT_HACKATHON_2024UITests.swift; sourceTree = "<group>"; };
 		9D0D00732B9413BE0015EB51 /* HKIS_SDLT_HACKATHON_2024UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKIS_SDLT_HACKATHON_2024UITestsLaunchTests.swift; sourceTree = "<group>"; };
-		9DAF7EB02B9D9C16004FBA3F /* ClaimedItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaimedItemsView.swift; sourceTree = "<group>"; };
 		9DE5FF3C2B9B3739006567C6 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		9DE5FF3E2B9B380E006567C6 /* UserCredentials.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = UserCredentials.json; sourceTree = "<group>"; };
 		9DE5FF402B9B3A88006567C6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -60,6 +58,7 @@
 		9DE5FF442B9C6BC2006567C6 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		9DFEABCA2BA2B0C0006CDE9D /* main_app_screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_app_screenshot.png; sourceTree = "<group>"; };
 		9DFEABCC2BA2B0DB006CDE9D /* secondary_app_screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = secondary_app_screenshot.png; sourceTree = "<group>"; };
+		9DFEABD82BA5A7B9006CDE9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +109,7 @@
 		9D0D00552B9413BB0015EB51 /* HKIS-SDLT-HACKATHON-2024 */ = {
 			isa = PBXGroup;
 			children = (
+				9DFEABD82BA5A7B9006CDE9D /* Info.plist */,
 				9DFEABC92BA2B0AF006CDE9D /* AppScreenshots */,
 				9DE5FF3E2B9B380E006567C6 /* UserCredentials.json */,
 				9DA997E82B9ED8D7002695B9 /* Data */,
@@ -121,7 +121,6 @@
 				9DE5FF402B9B3A88006567C6 /* MainView.swift */,
 				9DE5FF422B9C5DFF006567C6 /* CreatePostView.swift */,
 				9DE5FF442B9C6BC2006567C6 /* ImagePicker.swift */,
-				9DAF7EB02B9D9C16004FBA3F /* ClaimedItemsView.swift */,
 			);
 			path = "HKIS-SDLT-HACKATHON-2024";
 			sourceTree = "<group>";
@@ -304,7 +303,6 @@
 				9DE5FF3D2B9B3739006567C6 /* LoginView.swift in Sources */,
 				9DE5FF412B9B3A88006567C6 /* MainView.swift in Sources */,
 				9DE5FF452B9C6BC2006567C6 /* ImagePicker.swift in Sources */,
-				9DAF7EB12B9D9C16004FBA3F /* ClaimedItemsView.swift in Sources */,
 				9D0D00592B9413BB0015EB51 /* ContentView.swift in Sources */,
 				9D0D00572B9413BB0015EB51 /* HKIS_SDLT_HACKATHON_2024App.swift in Sources */,
 			);
@@ -473,11 +471,13 @@
 				DEVELOPMENT_TEAM = 9UB5ZLKL54;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "HKIS-SDLT-HACKATHON-2024/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -502,11 +502,13 @@
 				DEVELOPMENT_TEAM = 9UB5ZLKL54;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "HKIS-SDLT-HACKATHON-2024/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
