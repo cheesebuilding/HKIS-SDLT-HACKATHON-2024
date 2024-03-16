@@ -24,7 +24,6 @@ struct CreatePostView: View {
     @State private var selectedImage: UIImage? = nil
     @State private var isImagePickerDisplayed = false
     @Binding var posts: [Post]
-    let locations = ["Student Service Center", "HS Gym", "MS Gym", "Library", "Starbucks"]
 
     var body: some View {
         VStack {
@@ -37,33 +36,32 @@ struct CreatePostView: View {
             VStack(alignment: .leading) {
                 Text("Found at:")
                     .font(.headline)
-                Picker("Found Location", selection: $foundLocation) {
-                    ForEach(locations, id: \.self) {
-                        Text($0)
+                TextField("Found Location", text: $foundLocation)
+                    .onChange(of: foundLocation) { newValue in
+                        if newValue.count > 30 {
+                            foundLocation = String(newValue.prefix(30))
+                        }
                     }
-                }
-                .labelsHidden()
-                .padding()
-                .background(Color(.systemGray6))
-                .cornerRadius(5.0)
-                .padding(.bottom, 20)
+                    .padding()
+                    .background(Color(.systemGray6))
+                    .cornerRadius(5.0)
+                    .padding(.bottom, 20)
             }
 
             VStack(alignment: .leading) {
                 Text("Drop off at:")
                     .font(.headline)
-                Picker("Drop Off Location", selection: $dropOffLocation) {
-                    ForEach(locations, id: \.self) {
-                        Text($0)
+                TextField("Drop Off Location", text: $dropOffLocation)
+                    .onChange(of: dropOffLocation) { newValue in
+                        if newValue.count > 30 {
+                            dropOffLocation = String(newValue.prefix(30))
+                        }
                     }
-                }
-                .labelsHidden()
-                .padding()
-                .background(Color(.systemGray6))
-                .cornerRadius(5.0)
-                .padding(.bottom, 20)
+                    .padding()
+                    .background(Color(.systemGray6))
+                    .cornerRadius(5.0)
+                    .padding(.bottom, 20)
             }
-
             Button(action: {
                 isImagePickerDisplayed = true
             }) {
