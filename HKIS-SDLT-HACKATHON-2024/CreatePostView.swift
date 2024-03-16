@@ -67,17 +67,10 @@ struct CreatePostView: View {
             Button(action: {
                 isImagePickerDisplayed = true
             }) {
-                Text("Select Image")
+                Text("Take Photo")
             }
             .sheet(isPresented: $isImagePickerDisplayed) {
-                ImagePicker(image: $selectedImage)
-            }
-
-            if let image = selectedImage {
-                Image(uiImage: image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 200, height: 200)
+                ImagePicker(image: $selectedImage, sourceType: .camera)
             }
 
             Button(action: {
