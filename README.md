@@ -1,7 +1,7 @@
 <h1 align="center">Lost Then Found App for HKIS-SDLTH-HACKATHON-2024</h1>
 
 <p align="center">
-  <img src="AppScreenshots/main_app_screenshot.png" alt="App Screenshot" width="400">
+  <img src="HKIS-SDLT-HACKATHON-2024/AppScreenshots/main_app_screenshot.png" alt="App Screenshot" width="150">
 </p>
 
 <p align="center">
@@ -12,9 +12,6 @@
   <a href="#key-features">Key Features</a> •
   <a href="#screenshots">Screenshots</a> •
   <a href="#installation">Installation</a> •
-  <a href="#usage">Usage</a> •
-  <a href="#contributing">Contributing</a> •
-  <a href="#license">License</a>
 </p>
 
 ## Key Features
@@ -25,7 +22,7 @@
 ## Screenshots
 
 <p align="center">
-  <img src="AppScreenshots/secondary_app_screenshot" alt="Screenshot 1" width="200">
+  <img src="HKIS-SDLT-HACKATHON-2024/AppScreenshots/secondary_app_screenshot.png" alt="Screenshot 1" width="150">
 </p>
 
 ## Installation
@@ -33,4 +30,4 @@
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/lost-and-found-app.git
+   git clone https://github.com/cheesebuilding/HKIS-SDLT-HACKATHON-2024.git
