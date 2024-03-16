@@ -30,4 +30,4 @@
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/lost-and-found-app.git](https://github.com/cheesebuilding/HKIS-SDLT-HACKATHON-2024.git)https://github.com/cheesebuilding/HKIS-SDLT-HACKATHON-2024.git
+   git clone https://github.com/cheesebuilding/HKIS-SDLT-HACKATHON-2024.git
