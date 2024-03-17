@@ -157,7 +157,9 @@ struct BoxView: View {
                 
                 Button(action: {
                     withAnimation {
-                        postData.claimPost(at: index, by: username)
+                        if post.username != username {
+                            postData.claimPost(at: index, by: username)
+                        }
                     }
                 }) {
                     Text("Claim")
