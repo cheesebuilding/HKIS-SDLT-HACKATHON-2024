@@ -8,10 +8,7 @@
 import SwiftUI
 
 struct ClaimedItemView: View {
-    @EnvironmentObject var postData: PostData
     var post: Post
-
-    @State private var givenBack = false
 
     var body: some View {
         VStack {
@@ -23,28 +20,9 @@ struct ClaimedItemView: View {
                 .multilineTextAlignment(.center)
             Text("Drop off at: \(post.dropOffLocation)")
                 .multilineTextAlignment(.center)
-            HStack {
-                Button(action: {
-                    givenBack = true
-                    postData.giveBackPost(id: post.id)
-                }) {
-                    Text("Given Back")
-                        .padding()
-                        .background(givenBack ? Color.green : Color.gray)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                }
-                Button(action: {
-                    givenBack = false
-                    postData.notGivenBackPost(id: post.id)
-                }) {
-                    Text("Not Given Back")
-                        .padding()
-                        .background(!givenBack ? Color.red : Color.gray)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                }
-            }
+            post.selectedImage?
+                .resizable()
+                .aspectRatio(contentMode: .fit)
         }
         .padding()
     }

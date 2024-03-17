@@ -13,6 +13,7 @@ enum ActiveSheet: Identifiable {
 class PostData: ObservableObject {
     @Published var activePosts: [Post] = []
     @Published var claimedPosts: [Post] = []
+    @Published var selectedButtons: [UUID: String] = [:]
     @Published var posts: [Post] = [] {
         didSet {
             let encoder = JSONEncoder()
@@ -35,6 +36,15 @@ class PostData: ObservableObject {
             self.posts = decoded
         }
     }
+    func clearAllData() {
+            let url = Self.dataFileURL
+            do {
+                try FileManager.default.removeItem(at: url)
+                posts = []
+            } catch {
+                print("Error removing data file: \(error)")
+            }
+    }
     
     private static var dataFileURL: URL {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -43,20 +53,6 @@ class PostData: ObservableObject {
     
     func claimPost(at index: Int) {
         posts[index].claimed = true
-    }
-    func clearPosts() {
-            posts = []
-    }
-    func giveBackPost(id: UUID) {
-            if let index = posts.firstIndex(where: { $0.id == id }) {
-                posts[index].givenBack = true
-            }
-        }
-
-    func notGivenBackPost(id: UUID) {
-        if let index = posts.firstIndex(where: { $0.id == id }) {
-            posts[index].givenBack = false
-        }
     }
 
 }
@@ -76,11 +72,7 @@ struct MainView: View {
                     }
                 }
             }
-            Button(action: {
-                        postData.clearPosts()
-                    }) {
-                        Text("Clear Posts")
-                    }
+            
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
                 leading: HStack {

@@ -5,6 +5,7 @@ struct LoginView: View {
     @State private var password: String = ""
     @State private var loginMessage: String = ""
     @State private var isActive: Bool = false
+    @EnvironmentObject var postData: PostData
     
     var body: some View {
         NavigationView {
@@ -42,9 +43,12 @@ struct LoginView: View {
                         .background(Color(red: 66/255, green: 124/255, blue: 1))
                         .cornerRadius(15.0)
                 }
-                
                 Spacer()
-                
+                //Button(action: {
+                            //postData.clearAllData()
+                        //}) {
+                            //Text("clear data")
+                        //}
                 Text(loginMessage)
                     .font(.caption)
                     .foregroundColor(.red)
