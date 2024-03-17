@@ -10,6 +10,7 @@ struct Post: Codable, Identifiable {
     var found: Bool = false
     var givenBack: Bool = false
     var claimed: Bool = false
+    var claimedBy: String?
     
     
 

@@ -36,15 +36,10 @@ class PostData: ObservableObject {
             self.posts = decoded
         }
     }
-    func clearAllData() {
-            let url = Self.dataFileURL
-            do {
-                try FileManager.default.removeItem(at: url)
-                posts = []
-            } catch {
-                print("Error removing data file: \(error)")
-            }
-    }
+    func claimPost(at index: Int, by user: String) {
+            posts[index].claimed = true
+            posts[index].claimedBy = user
+        }
     
     private static var dataFileURL: URL {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -71,17 +66,15 @@ struct MainView: View {
     @State var username: String
     @State private var activeSheet: ActiveSheet?
 
-    
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 25) {
                     ForEach(postData.posts.indices, id: \.self) { index in
-                        BoxView(post: postData.posts[index], index: index)
+                        BoxView(post: postData.posts[index], index: index, username: username)
                     }
                 }
             }
-            
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
                 leading: HStack {
@@ -102,10 +95,9 @@ struct MainView: View {
                             .foregroundColor(.white)
                             .clipShape(Circle())
                     }
-       
-
                     Button(action: {
-                        activeSheet = .postHistory                    }) {
+                        activeSheet = .postHistory
+                    }) {
                         Text("history")
                             .font(.footnote)
                             .padding(18)
@@ -113,7 +105,6 @@ struct MainView: View {
                             .foregroundColor(.white)
                             .clipShape(Circle())
                     }
-         
                 }
             )
             .sheet(item: $activeSheet) { item in
@@ -122,7 +113,7 @@ struct MainView: View {
                     CreatePostView(username: $username, posts: $postData.posts)
                         .environmentObject(postData)
                 case .postHistory:
-                    PostHistoryView()
+                    PostHistoryView(username: username)
                         .environmentObject(postData)
                 }
             }
@@ -133,6 +124,7 @@ struct BoxView: View {
     let post: Post
     @EnvironmentObject var postData: PostData
     var index: Int
+    var username: String
 
     var body: some View {
         if !post.claimed {
@@ -165,7 +157,7 @@ struct BoxView: View {
                 
                 Button(action: {
                     withAnimation {
-                        postData.claimPost(at: index)
+                        postData.claimPost(at: index, by: username)
                     }
                 }) {
                     Text("Claim")

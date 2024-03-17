@@ -30,10 +30,11 @@ struct ClaimedItemView: View {
 }
 struct PostHistoryView: View {
     @EnvironmentObject var postData: PostData
+    @State var username: String
 
     var body: some View {
         List {
-            ForEach(postData.posts.filter { $0.claimed }, id: \.id) { post in
+            ForEach(postData.posts.filter { $0.claimed && $0.claimedBy == username }, id: \.id) { post in
                 ClaimedItemView(post: post)
             }
         }
@@ -42,5 +43,5 @@ struct PostHistoryView: View {
 }
 
 #Preview{
-    PostHistoryView()
+    PostHistoryView(username: "Test").environmentObject(PostData())
 }
