@@ -10,7 +10,9 @@ import CoreData
 
 @main
 struct HKIS_SDLT_HACKATHON_2024App: App {
-
+    
+    @StateObject private var postData = PostData()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

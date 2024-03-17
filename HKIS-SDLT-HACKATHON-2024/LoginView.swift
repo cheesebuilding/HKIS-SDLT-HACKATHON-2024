@@ -18,13 +18,13 @@ struct LoginView: View {
                 
                 Spacer()
                 VStack {
-                    TextField("Student ID", text: $username)
+                    TextField("Student Name", text: $username)
                         .padding()
                         .background(Color(.systemGray6))
                         .cornerRadius(5.0)
                         .padding(.bottom, 20)
                     
-                    SecureField("Password", text: $password)
+                    SecureField("Student ID", text: $password)
                         .padding()
                         .background(Color(.systemGray6))
                         .cornerRadius(5.0)
@@ -44,11 +44,7 @@ struct LoginView: View {
                         .cornerRadius(15.0)
                 }
                 Spacer()
-                //Button(action: {
-                            //postData.clearAllData()
-                        //}) {
-                            //Text("clear data")
-                        //}
+
                 Text(loginMessage)
                     .font(.caption)
                     .foregroundColor(.red)

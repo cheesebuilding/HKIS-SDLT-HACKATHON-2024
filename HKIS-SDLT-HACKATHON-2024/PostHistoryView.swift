@@ -23,11 +23,11 @@ struct ClaimedItemView: View {
             post.selectedImage?
                 .resizable()
                 .aspectRatio(contentMode: .fit)
+                .frame(width: 200, height: 200)
         }
         .padding()
     }
 }
-
 struct PostHistoryView: View {
     @EnvironmentObject var postData: PostData
 
@@ -37,6 +37,7 @@ struct PostHistoryView: View {
                 ClaimedItemView(post: post)
             }
         }
+        .navigationTitle("Claimed Items")
     }
 }
 

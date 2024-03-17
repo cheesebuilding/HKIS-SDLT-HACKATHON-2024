@@ -53,6 +53,15 @@ class PostData: ObservableObject {
     
     func claimPost(at index: Int) {
         posts[index].claimed = true
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(posts) {
+            let url = Self.dataFileURL
+            do {
+                try encoded.write(to: url)
+            } catch {
+                print("Error writing data to file: \(error)")
+            }
+        }
     }
 
 }
@@ -127,7 +136,6 @@ struct BoxView: View {
 
     var body: some View {
         if !post.claimed {
-            
             VStack {
                 Text(post.itemName)
                     .font(.title)
@@ -156,12 +164,10 @@ struct BoxView: View {
                     .padding(.horizontal, 10)
                 
                 Button(action: {
-                    
-                    postData.claimPost(at: index)
-                }
-                       
-                       
-                ) {
+                    withAnimation {
+                        postData.claimPost(at: index)
+                    }
+                }) {
                     Text("Claim")
                         .font(.headline)
                         .foregroundColor(.white)
@@ -175,6 +181,7 @@ struct BoxView: View {
             .frame(width: 350)
             .background(Color(.systemGray6))
             .cornerRadius(10)
+            .transition(.move(edge: .bottom))
         }
     }
 }
