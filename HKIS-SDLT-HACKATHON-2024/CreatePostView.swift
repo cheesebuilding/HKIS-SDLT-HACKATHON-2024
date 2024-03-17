@@ -7,6 +7,11 @@ struct Post: Codable, Identifiable {
     var itemName: String
     var dropOffLocation: String
     var selectedImageData: Data?
+    var found: Bool = false
+    var givenBack: Bool = false
+    var claimed: Bool = false
+    
+    
 
     var selectedImage: Image? {
         if let data = selectedImageData {
@@ -38,8 +43,8 @@ struct CreatePostView: View {
                     .font(.headline)
                 TextField("Found Location", text: $foundLocation)
                     .onChange(of: foundLocation) { newValue in
-                        if newValue.count > 30 {
-                            foundLocation = String(newValue.prefix(30))
+                        if newValue.count > 45 {
+                            foundLocation = String(newValue.prefix(45))
                         }
                     }
                     .padding()
@@ -53,8 +58,8 @@ struct CreatePostView: View {
                     .font(.headline)
                 TextField("Drop Off Location", text: $dropOffLocation)
                     .onChange(of: dropOffLocation) { newValue in
-                        if newValue.count > 30 {
-                            dropOffLocation = String(newValue.prefix(30))
+                        if newValue.count > 45 {
+                            dropOffLocation = String(newValue.prefix(45))
                         }
                     }
                     .padding()

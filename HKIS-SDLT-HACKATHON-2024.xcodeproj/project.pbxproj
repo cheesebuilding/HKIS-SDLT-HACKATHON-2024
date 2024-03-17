@@ -21,6 +21,7 @@
 		9DE5FF452B9C6BC2006567C6 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE5FF442B9C6BC2006567C6 /* ImagePicker.swift */; };
 		9DFEABCB2BA2B0C0006CDE9D /* main_app_screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DFEABCA2BA2B0C0006CDE9D /* main_app_screenshot.png */; };
 		9DFEABCD2BA2B0DB006CDE9D /* secondary_app_screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DFEABCC2BA2B0DB006CDE9D /* secondary_app_screenshot.png */; };
+		9DFEABDA2BA5AFC5006CDE9D /* PostHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFEABD92BA5AFC5006CDE9D /* PostHistoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		9DFEABCA2BA2B0C0006CDE9D /* main_app_screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_app_screenshot.png; sourceTree = "<group>"; };
 		9DFEABCC2BA2B0DB006CDE9D /* secondary_app_screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = secondary_app_screenshot.png; sourceTree = "<group>"; };
 		9DFEABD82BA5A7B9006CDE9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DFEABD92BA5AFC5006CDE9D /* PostHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostHistoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				9DE5FF402B9B3A88006567C6 /* MainView.swift */,
 				9DE5FF422B9C5DFF006567C6 /* CreatePostView.swift */,
 				9DE5FF442B9C6BC2006567C6 /* ImagePicker.swift */,
+				9DFEABD92BA5AFC5006CDE9D /* PostHistoryView.swift */,
 			);
 			path = "HKIS-SDLT-HACKATHON-2024";
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DFEABDA2BA5AFC5006CDE9D /* PostHistoryView.swift in Sources */,
 				9DE5FF432B9C5DFF006567C6 /* CreatePostView.swift in Sources */,
 				9DE5FF3D2B9B3739006567C6 /* LoginView.swift in Sources */,
 				9DE5FF412B9B3A88006567C6 /* MainView.swift in Sources */,
