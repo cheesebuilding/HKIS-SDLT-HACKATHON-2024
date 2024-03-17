@@ -44,6 +44,9 @@ class PostData: ObservableObject {
     func claimPost(at index: Int) {
         posts[index].claimed = true
     }
+    func clearPosts() {
+            posts = []
+    }
     func giveBackPost(id: UUID) {
             if let index = posts.firstIndex(where: { $0.id == id }) {
                 posts[index].givenBack = true
@@ -73,6 +76,11 @@ struct MainView: View {
                     }
                 }
             }
+            Button(action: {
+                        postData.clearPosts()
+                    }) {
+                        Text("Clear Posts")
+                    }
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
                 leading: HStack {

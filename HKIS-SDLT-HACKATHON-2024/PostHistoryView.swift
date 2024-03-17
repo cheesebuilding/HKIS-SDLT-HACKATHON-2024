@@ -7,42 +7,61 @@
 
 import SwiftUI
 
-
 struct ClaimedItemView: View {
     @EnvironmentObject var postData: PostData
     var post: Post
 
+    @State private var givenBack = false
+
     var body: some View {
         VStack {
             Text(post.itemName)
+                .font(.title)
+                .fontWeight(.bold)
+                .multilineTextAlignment(.center)
             Text("Found at: \(post.foundLocation)")
+                .multilineTextAlignment(.center)
             Text("Drop off at: \(post.dropOffLocation)")
-            Button(action: {
-                postData.giveBackPost(id: post.id)
-            }) {
-                Text("Given Back")
-            }
-            Button(action: {
-                postData.notGivenBackPost(id: post.id)
-            }) {
-                Text("Not Given Back")
+                .multilineTextAlignment(.center)
+            HStack {
+                Button(action: {
+                    givenBack = true
+                    postData.giveBackPost(id: post.id)
+                }) {
+                    Text("Given Back")
+                        .padding()
+                        .background(givenBack ? Color.green : Color.gray)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
+                Button(action: {
+                    givenBack = false
+                    postData.notGivenBackPost(id: post.id)
+                }) {
+                    Text("Not Given Back")
+                        .padding()
+                        .background(!givenBack ? Color.red : Color.gray)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
             }
         }
+        .padding()
     }
 }
+
 struct PostHistoryView: View {
     @EnvironmentObject var postData: PostData
 
     var body: some View {
         List {
             ForEach(postData.posts.filter { $0.claimed }, id: \.id) { post in
-                            ClaimedItemView(post: post)
+                ClaimedItemView(post: post)
             }
         }
     }
 }
 
-
-#Preview {
+#Preview{
     PostHistoryView()
 }
