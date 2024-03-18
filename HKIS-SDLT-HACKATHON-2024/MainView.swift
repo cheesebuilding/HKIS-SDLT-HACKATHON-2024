@@ -60,6 +60,9 @@ class PostData: ObservableObject {
             }
         }
     }
+    func deletePost(at index: Int) {
+        posts.remove(at: index)
+    }
     func loadUsernames() {
         if let url = Bundle.main.url(forResource: "UserCredentials", withExtension: "json") {
             do {
@@ -146,6 +149,16 @@ struct BoxView: View {
     var body: some View {
         if !post.claimed {
             VStack {
+                if post.username == username {
+                    Button(action: {
+                        postData.deletePost(at: index)
+                    }) {
+                        Image(systemName: "trash")
+                            .font(.subheadline)
+                            .foregroundColor(.red)
+                            .offset(x: 150, y: 5)
+                    }
+                }
                 Text(post.itemName)
                     .font(.title)
                     .fontWeight(.bold)
