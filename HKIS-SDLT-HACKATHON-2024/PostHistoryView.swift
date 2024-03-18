@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ClaimedItemView: View {
     var post: Post
+    var claimedByMe: Bool
 
     var body: some View {
         VStack {
@@ -19,6 +20,8 @@ struct ClaimedItemView: View {
             Text("Found at: \(post.foundLocation)")
                 .multilineTextAlignment(.center)
             Text("Drop off at: \(post.dropOffLocation)")
+                .multilineTextAlignment(.center)
+            Text(claimedByMe ? "Claimed by you" : "Claimed by \(post.claimedBy ?? "")")
                 .multilineTextAlignment(.center)
             post.selectedImage?
                 .resizable()
@@ -34,8 +37,16 @@ struct PostHistoryView: View {
 
     var body: some View {
         List {
-            ForEach(postData.posts.filter { $0.claimed && $0.claimedBy == username }, id: \.id) { post in
-                ClaimedItemView(post: post)
+            Section(header: Text("Items Claimed By Me")) {
+                ForEach(postData.posts.filter { $0.claimed && $0.claimedBy == username }, id: \.id) { post in
+                    ClaimedItemView(post: post, claimedByMe: true)
+                }
+            }
+
+            Section(header: Text("My Items Claimed By Others")) {
+                ForEach(postData.posts.filter { $0.claimed && $0.username == username }, id: \.id) { post in
+                    ClaimedItemView(post: post, claimedByMe: false)
+                }
             }
         }
         .navigationTitle("Claimed Items")

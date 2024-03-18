@@ -10,7 +10,7 @@ struct LoginView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("Lost then Found")
+                Text("Lost and Found")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .padding(.bottom, 50)
