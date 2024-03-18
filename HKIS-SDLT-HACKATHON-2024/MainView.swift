@@ -11,6 +11,7 @@ enum ActiveSheet: Identifiable {
 }
 
 class PostData: ObservableObject {
+    @Published var usernames: [String] = ["No username"]
     @Published var activePosts: [Post] = []
     @Published var claimedPosts: [Post] = []
     @Published var selectedButtons: [UUID: String] = [:]
@@ -29,6 +30,7 @@ class PostData: ObservableObject {
     }
     
     init() {
+        loadUsernames()
         let url = Self.dataFileURL
         let decoder = JSONDecoder()
         if let data = try? Data(contentsOf: url),
@@ -55,6 +57,21 @@ class PostData: ObservableObject {
                 try encoded.write(to: url)
             } catch {
                 print("Error writing data to file: \(error)")
+            }
+        }
+    }
+    func loadUsernames() {
+        if let url = Bundle.main.url(forResource: "UserCredentials", withExtension: "json") {
+            do {
+                let data = try Data(contentsOf: url)
+                let decoder = JSONDecoder()
+                let jsonData = try decoder.decode([UserCredentials].self, from: data)
+                
+                for user in jsonData {
+                    usernames.append(user.username)
+                }
+            } catch {
+                print("Error: \(error)")
             }
         }
     }
@@ -149,6 +166,12 @@ struct BoxView: View {
                     .font(.subheadline)
                     .foregroundColor(.gray)
                     .padding(.horizontal, 10)
+                if let taggedUsername = post.taggedUsername {
+                        Text("Tagged Student: \(taggedUsername)")
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                            .padding(.horizontal, 10)
+                    }
                 
                 Text("Drop off at: \(post.dropOffLocation)")
                     .font(.subheadline)
@@ -157,7 +180,7 @@ struct BoxView: View {
                 
                 Button(action: {
                     withAnimation {
-                        if post.username != username {
+                        if post.taggedUsername == nil || post.taggedUsername == username {
                             postData.claimPost(at: index, by: username)
                         }
                     }
@@ -170,6 +193,7 @@ struct BoxView: View {
                         .background(Color.blue)
                         .cornerRadius(10.0)
                 }
+                .disabled(post.taggedUsername != nil && post.taggedUsername != username || post.username == username)
                 .padding(.bottom, 10)
             }
             .frame(width: 350)

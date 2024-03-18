@@ -10,8 +10,8 @@ struct Post: Codable, Identifiable {
     var found: Bool = false
     var givenBack: Bool = false
     var claimed: Bool = false
-    var claimedBy: String?
-    
+    var claimedBy: String?    
+    var taggedUsername: String? 
     
 
     var selectedImage: Image? {
@@ -22,6 +22,7 @@ struct Post: Codable, Identifiable {
     }
 }
 struct CreatePostView: View {
+    @State private var taggedUsername = ""
     @Binding var username: String
     @State private var itemName = ""
     @Environment(\.presentationMode) var presentationMode
@@ -30,6 +31,8 @@ struct CreatePostView: View {
     @State private var selectedImage: UIImage? = nil
     @State private var isImagePickerDisplayed = false
     @Binding var posts: [Post]
+    @EnvironmentObject var postData: PostData
+    @State private var selectedUsernameIndex = 0
 
     var body: some View {
         VStack {
@@ -37,9 +40,17 @@ struct CreatePostView: View {
                 .padding()
                 .background(Color(.systemGray6))
                 .cornerRadius(5.0)
-                .padding(.bottom, 20)
+                .padding(.bottom, 40)
 
-            VStack(alignment: .leading) {
+            Picker("Tag Student (Optional)", selection: $selectedUsernameIndex) {
+                ForEach(0..<postData.usernames.filter { $0 != username }.count, id: \.self) {
+                    Text(self.postData.usernames.filter { $0 != username }[$0])
+                }
+            }
+                    .background(Color(.systemGray6))
+                    .cornerRadius(5.0)
+                    .padding(.bottom, 40)
+            VStack(alignment: .leading, spacing: 5) {
                 Text("Found at:")
                     .font(.headline)
                 TextField("Found Location", text: $foundLocation)
@@ -51,10 +62,11 @@ struct CreatePostView: View {
                     .padding()
                     .background(Color(.systemGray6))
                     .cornerRadius(5.0)
-                    .padding(.bottom, 20)
+                    .padding(.bottom, 40)
             }
 
-            VStack(alignment: .leading) {
+            
+            VStack(alignment: .leading, spacing: 10) {
                 Text("Drop off at:")
                     .font(.headline)
                 TextField("Drop Off Location", text: $dropOffLocation)
@@ -95,7 +107,8 @@ struct CreatePostView: View {
     }
 
     func addPost() {
-        let post = Post(username: username, foundLocation: foundLocation, itemName: itemName, dropOffLocation: dropOffLocation, selectedImageData: selectedImage?.jpegData(compressionQuality: 1.0))
+        let taggedUsername = postData.usernames.filter { $0 != username }[selectedUsernameIndex] == "No username" ? nil : postData.usernames.filter { $0 != username }[selectedUsernameIndex]
+        let post = Post(username: username, foundLocation: foundLocation, itemName: itemName, dropOffLocation: dropOffLocation, selectedImageData: selectedImage?.jpegData(compressionQuality: 1.0), taggedUsername: taggedUsername)
         posts.append(post)
         presentationMode.wrappedValue.dismiss()
     }
