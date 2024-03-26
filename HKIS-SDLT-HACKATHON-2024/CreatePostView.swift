@@ -1,5 +1,10 @@
 import SwiftUI
 
+enum Category: String, CaseIterable, Codable {
+    case earphones, wallet, clothing, other
+}
+
+
 struct Post: Codable, Identifiable {
     var id = UUID()
     var username: String
@@ -10,8 +15,10 @@ struct Post: Codable, Identifiable {
     var found: Bool = false
     var givenBack: Bool = false
     var claimed: Bool = false
-    var claimedBy: String?    
-    var taggedUsername: String? 
+    var claimedBy: String?
+    var taggedUsername: String?
+    var category: Category
+    var otherItemName: String?
     
 
     var selectedImage: Image? {
@@ -33,86 +40,83 @@ struct CreatePostView: View {
     @Binding var posts: [Post]
     @EnvironmentObject var postData: PostData
     @State private var selectedUsernameIndex = 0
+    @State private var category = Category.other
+    @State private var otherItemName = ""
 
     var body: some View {
-        VStack {
-            TextField("Item Name", text: $itemName)
-                .padding()
-                .background(Color(.systemGray6))
-                .cornerRadius(5.0)
-                .padding(.bottom, 40)
-
-            Picker("Tag Student (Optional)", selection: $selectedUsernameIndex) {
-                ForEach(0..<postData.usernames.filter { $0 != username }.count, id: \.self) {
-                    Text(self.postData.usernames.filter { $0 != username }[$0])
-                }
-            }
-                    .background(Color(.systemGray6))
-                    .cornerRadius(5.0)
-                    .padding(.bottom, 40)
-            VStack(alignment: .leading, spacing: 5) {
-                Text("Found at:")
-                    .font(.headline)
-                TextField("Found Location", text: $foundLocation)
-                    .onChange(of: foundLocation) { newValue in
-                        if newValue.count > 45 {
-                            foundLocation = String(newValue.prefix(45))
-                        }
-                    }
-                    .padding()
-                    .background(Color(.systemGray6))
-                    .cornerRadius(5.0)
-                    .padding(.bottom, 40)
-            }
-
-            
-            VStack(alignment: .leading, spacing: 10) {
-                Text("Drop off at:")
-                    .font(.headline)
-                TextField("Drop Off Location", text: $dropOffLocation)
-                    .onChange(of: dropOffLocation) { newValue in
-                        if newValue.count > 45 {
-                            dropOffLocation = String(newValue.prefix(45))
-                        }
-                    }
-                    .padding()
-                    .background(Color(.systemGray6))
-                    .cornerRadius(5.0)
-                    .padding(.bottom, 20)
-            }
-            Button(action: {
-                isImagePickerDisplayed = true
-            }) {
-                Text("Take Photo")
-            }
-            .sheet(isPresented: $isImagePickerDisplayed) {
-                ImagePicker(image: $selectedImage, sourceType: .camera)
-            }
-
-            Button(action: {
-                addPost()
-            }) {
-                Text("Post")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .padding()
-                    .frame(width: 200, height: 50)
-                    .background(Color(red: 66/255, green: 124/255, blue: 1))
-                    .cornerRadius(10.0)
-            }
-            .disabled(itemName.isEmpty || foundLocation.isEmpty || dropOffLocation.isEmpty || selectedImage == nil)
-            .padding(.top, 20)
-        }
-        .padding()
-    }
+           NavigationView {
+               Form {
+                   Section(header: Text("Item Details")) {
+                       Picker("Category", selection: $category) {
+                           ForEach(Category.allCases, id: \.self) {
+                               Text($0.rawValue.capitalized)
+                           }
+                       }
+                       
+                       if category == .other {
+                           TextField("Item Name", text: $otherItemName)
+                       }
+                   }
+                   
+                   Section(header: Text("Tag Student (Optional)")) {
+                       Picker("Username", selection: $selectedUsernameIndex) {
+                           ForEach(0..<postData.usernames.filter { $0 != username }.count, id: \.self) {
+                               Text(self.postData.usernames.filter { $0 != username }[$0])
+                           }
+                       }
+                   }
+                   
+                   Section(header: Text("Location Details")) {
+                       TextField("Found Location", text: $foundLocation)
+                           .onChange(of: foundLocation) { newValue in
+                               if newValue.count > 45 {
+                                   foundLocation = String(newValue.prefix(45))
+                               }
+                           }
+                       
+                       TextField("Drop Off Location", text: $dropOffLocation)
+                           .onChange(of: dropOffLocation) { newValue in
+                               if newValue.count > 45 {
+                                   dropOffLocation = String(newValue.prefix(45))
+                               }
+                           }
+                   }
+                   
+                   Section {
+                       Button(action: {
+                           isImagePickerDisplayed = true
+                       }) {
+                           HStack {
+                               Image(systemName: "camera")
+                               Text("Take Photo")
+                           }
+                       }
+                       .sheet(isPresented: $isImagePickerDisplayed) {
+                           ImagePicker(image: $selectedImage, sourceType: .camera)
+                       }
+                   }
+                   
+                   Section {
+                       Button(action: {
+                           addPost()
+                       }) {
+                           Text("Post")
+                               .foregroundColor(.white)
+                               .frame(maxWidth: .infinity, alignment: .center)
+                               .padding()
+                               .background(Color.blue)
+                               .cornerRadius(10)
+                       }
+                   }
+               }
+               .navigationBarTitle("Create Post", displayMode: .inline)
+           }
+       }
 
     func addPost() {
         let taggedUsername = postData.usernames.filter { $0 != username }[selectedUsernameIndex] == "No username" ? nil : postData.usernames.filter { $0 != username }[selectedUsernameIndex]
-        let post = Post(username: username, foundLocation: foundLocation, itemName: itemName, dropOffLocation: dropOffLocation, selectedImageData: selectedImage?.jpegData(compressionQuality: 1.0), taggedUsername: taggedUsername)
-        posts.append(post)
+        let post = Post(username: username, foundLocation: foundLocation, itemName: category == .other ? otherItemName : itemName, dropOffLocation: dropOffLocation, selectedImageData: selectedImage?.jpegData(compressionQuality: 1.0), taggedUsername: taggedUsername, category: category, otherItemName: category == .other ? otherItemName : nil)
+        postData.posts.append(post)
         presentationMode.wrappedValue.dismiss()
     }
-}
-#Preview {
-    CreatePostView(username: .constant("Test User"), posts: .constant([Post(username: "Test User", foundLocation: "Location", itemName: "Item", dropOffLocation: "Drop Off Location")]))
 }

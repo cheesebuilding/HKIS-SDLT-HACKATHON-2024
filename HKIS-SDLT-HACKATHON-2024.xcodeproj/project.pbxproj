@@ -14,11 +14,16 @@
 		9D0D00682B9413BE0015EB51 /* HKIS_SDLT_HACKATHON_2024Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0D00672B9413BE0015EB51 /* HKIS_SDLT_HACKATHON_2024Tests.swift */; };
 		9D0D00722B9413BE0015EB51 /* HKIS_SDLT_HACKATHON_2024UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0D00712B9413BE0015EB51 /* HKIS_SDLT_HACKATHON_2024UITests.swift */; };
 		9D0D00742B9413BE0015EB51 /* HKIS_SDLT_HACKATHON_2024UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0D00732B9413BE0015EB51 /* HKIS_SDLT_HACKATHON_2024UITestsLaunchTests.swift */; };
+		9D4A11602BAA76C2008E54C9 /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4A115F2BAA76C2008E54C9 /* AsyncImage.swift */; };
 		9DE5FF3D2B9B3739006567C6 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE5FF3C2B9B3739006567C6 /* LoginView.swift */; };
 		9DE5FF3F2B9B380E006567C6 /* UserCredentials.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DE5FF3E2B9B380E006567C6 /* UserCredentials.json */; };
 		9DE5FF412B9B3A88006567C6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE5FF402B9B3A88006567C6 /* MainView.swift */; };
 		9DE5FF432B9C5DFF006567C6 /* CreatePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE5FF422B9C5DFF006567C6 /* CreatePostView.swift */; };
 		9DE5FF452B9C6BC2006567C6 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE5FF442B9C6BC2006567C6 /* ImagePicker.swift */; };
+		9DF1B38E2BB19BA400AFD277 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 9DF1B38D2BB19BA400AFD277 /* Realm */; };
+		9DF1B3902BB19BA400AFD277 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9DF1B38F2BB19BA400AFD277 /* RealmSwift */; };
+		9DF1B3922BB19BB500AFD277 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 9DF1B3912BB19BB500AFD277 /* Realm */; };
+		9DF1B3942BB19BB500AFD277 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9DF1B3932BB19BB500AFD277 /* RealmSwift */; };
 		9DFEABCB2BA2B0C0006CDE9D /* main_app_screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DFEABCA2BA2B0C0006CDE9D /* main_app_screenshot.png */; };
 		9DFEABCD2BA2B0DB006CDE9D /* secondary_app_screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DFEABCC2BA2B0DB006CDE9D /* secondary_app_screenshot.png */; };
 		9DFEABDA2BA5AFC5006CDE9D /* PostHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFEABD92BA5AFC5006CDE9D /* PostHistoryView.swift */; };
@@ -52,6 +57,7 @@
 		9D0D006D2B9413BE0015EB51 /* HKIS-SDLT-HACKATHON-2024UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HKIS-SDLT-HACKATHON-2024UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D0D00712B9413BE0015EB51 /* HKIS_SDLT_HACKATHON_2024UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKIS_SDLT_HACKATHON_2024UITests.swift; sourceTree = "<group>"; };
 		9D0D00732B9413BE0015EB51 /* HKIS_SDLT_HACKATHON_2024UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKIS_SDLT_HACKATHON_2024UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9D4A115F2BAA76C2008E54C9 /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
 		9DE5FF3C2B9B3739006567C6 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		9DE5FF3E2B9B380E006567C6 /* UserCredentials.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = UserCredentials.json; sourceTree = "<group>"; };
 		9DE5FF402B9B3A88006567C6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -68,6 +74,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DF1B3902BB19BA400AFD277 /* RealmSwift in Frameworks */,
+				9DF1B38E2BB19BA400AFD277 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +83,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DF1B3942BB19BB500AFD277 /* RealmSwift in Frameworks */,
+				9DF1B3922BB19BB500AFD277 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +105,7 @@
 				9D0D00662B9413BE0015EB51 /* HKIS-SDLT-HACKATHON-2024Tests */,
 				9D0D00702B9413BE0015EB51 /* HKIS-SDLT-HACKATHON-2024UITests */,
 				9D0D00542B9413BB0015EB51 /* Products */,
+				9DF91DD62BA9AFF1005C6AC1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,10 +122,10 @@
 		9D0D00552B9413BB0015EB51 /* HKIS-SDLT-HACKATHON-2024 */ = {
 			isa = PBXGroup;
 			children = (
+				9D4A11A02BAD56A6008E54C9 /* Manager */,
 				9DFEABD82BA5A7B9006CDE9D /* Info.plist */,
 				9DFEABC92BA2B0AF006CDE9D /* AppScreenshots */,
 				9DE5FF3E2B9B380E006567C6 /* UserCredentials.json */,
-				9DA997E82B9ED8D7002695B9 /* Data */,
 				9D0D00562B9413BB0015EB51 /* HKIS_SDLT_HACKATHON_2024App.swift */,
 				9D0D00582B9413BB0015EB51 /* ContentView.swift */,
 				9D0D005A2B9413BE0015EB51 /* Assets.xcassets */,
@@ -124,6 +135,7 @@
 				9DE5FF422B9C5DFF006567C6 /* CreatePostView.swift */,
 				9DE5FF442B9C6BC2006567C6 /* ImagePicker.swift */,
 				9DFEABD92BA5AFC5006CDE9D /* PostHistoryView.swift */,
+				9D4A115F2BAA76C2008E54C9 /* AsyncImage.swift */,
 			);
 			path = "HKIS-SDLT-HACKATHON-2024";
 			sourceTree = "<group>";
@@ -153,11 +165,18 @@
 			path = "HKIS-SDLT-HACKATHON-2024UITests";
 			sourceTree = "<group>";
 		};
-		9DA997E82B9ED8D7002695B9 /* Data */ = {
+		9D4A11A02BAD56A6008E54C9 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Data;
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		9DF91DD62BA9AFF1005C6AC1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		9DFEABC92BA2B0AF006CDE9D /* AppScreenshots */ = {
@@ -185,6 +204,10 @@
 			dependencies = (
 			);
 			name = "HKIS-SDLT-HACKATHON-2024";
+			packageProductDependencies = (
+				9DF1B38D2BB19BA400AFD277 /* Realm */,
+				9DF1B38F2BB19BA400AFD277 /* RealmSwift */,
+			);
 			productName = "HKIS-SDLT-HACKATHON-2024";
 			productReference = 9D0D00532B9413BB0015EB51 /* HKIS-SDLT-HACKATHON-2024.app */;
 			productType = "com.apple.product-type.application";
@@ -203,6 +226,10 @@
 				9D0D00652B9413BE0015EB51 /* PBXTargetDependency */,
 			);
 			name = "HKIS-SDLT-HACKATHON-2024Tests";
+			packageProductDependencies = (
+				9DF1B3912BB19BB500AFD277 /* Realm */,
+				9DF1B3932BB19BB500AFD277 /* RealmSwift */,
+			);
 			productName = "HKIS-SDLT-HACKATHON-2024Tests";
 			productReference = 9D0D00632B9413BE0015EB51 /* HKIS-SDLT-HACKATHON-2024Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -231,7 +258,7 @@
 		9D0D004B2B9413BB0015EB51 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = 1;
+				BuildIndependentTargetsInParallel = NO;
 				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
@@ -257,6 +284,9 @@
 				Base,
 			);
 			mainGroup = 9D0D004A2B9413BB0015EB51;
+			packageReferences = (
+				9DF1B38C2BB1699C00AFD277 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+			);
 			productRefGroup = 9D0D00542B9413BB0015EB51 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -306,6 +336,7 @@
 				9DE5FF432B9C5DFF006567C6 /* CreatePostView.swift in Sources */,
 				9DE5FF3D2B9B3739006567C6 /* LoginView.swift in Sources */,
 				9DE5FF412B9B3A88006567C6 /* MainView.swift in Sources */,
+				9D4A11602BAA76C2008E54C9 /* AsyncImage.swift in Sources */,
 				9DE5FF452B9C6BC2006567C6 /* ImagePicker.swift in Sources */,
 				9D0D00592B9413BB0015EB51 /* ContentView.swift in Sources */,
 				9D0D00572B9413BB0015EB51 /* HKIS_SDLT_HACKATHON_2024App.swift in Sources */,
@@ -476,11 +507,11 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "HKIS-SDLT-HACKATHON-2024/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to take the photo for your post.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -507,11 +538,11 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "HKIS-SDLT-HACKATHON-2024/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to take the photo for your post.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -642,6 +673,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9DF1B38C2BB1699C00AFD277 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9DF1B38D2BB19BA400AFD277 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9DF1B38C2BB1699C00AFD277 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		9DF1B38F2BB19BA400AFD277 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9DF1B38C2BB1699C00AFD277 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+		9DF1B3912BB19BB500AFD277 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9DF1B38C2BB1699C00AFD277 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		9DF1B3932BB19BB500AFD277 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9DF1B38C2BB1699C00AFD277 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9D0D004B2B9413BB0015EB51 /* Project object */;
 }

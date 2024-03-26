@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import Supabase
 
 struct Supabase: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+    let supabase = SupabaseClient(
+      supabaseURL: URL(string: "https://nqvwiqqkwxxerurixirh.supabase.co")!,
+      supabaseKey: "YOUR_SUPABASE_ANON_KEY"
+    )
 }
 
 #Preview {

@@ -5,56 +5,56 @@ struct LoginView: View {
     @State private var password: String = ""
     @State private var loginMessage: String = ""
     @State private var isActive: Bool = false
+    @State private var wrongUsername: Float = 0
+    @State private var wrongPassword: Float  = 0
     @EnvironmentObject var postData: PostData
     
     var body: some View {
         NavigationView {
-            VStack {
-                Text("Lost and Found")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .padding(.bottom, 50)
-                    .offset(y:50)
-                
-                Spacer()
-                VStack {
-                    TextField("Student Name", text: $username)
-                        .padding()
-                        .background(Color(.systemGray6))
-                        .cornerRadius(5.0)
-                        .padding(.bottom, 20)
-                    
-                    SecureField("Student ID", text: $password)
-                        .padding()
-                        .background(Color(.systemGray6))
-                        .cornerRadius(5.0)
-                        .padding(.bottom, 20)
-                }
-                .padding(.horizontal, 32)
-                
-                Button(action: {
-                    login()
-                }) {
-                    Text("Login")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(width: 220, height: 60)
-                        .background(Color(red: 66/255, green: 124/255, blue: 1))
-                        .cornerRadius(15.0)
-                }
-                Spacer()
+            ZStack {
+                Color.blue
+                    .ignoresSafeArea()
+                Circle()
+                    .scale(1.7)
+                    .foregroundColor(.white.opacity(0.15))
+                Circle()
+                    .scale(1.35)
+                    .foregroundColor(.white)
 
-                Text(loginMessage)
-                    .font(.caption)
-                    .foregroundColor(.red)
-                    .padding(.top, 20)
-                
-                NavigationLink(destination: MainView(username: username).environmentObject(PostData()), isActive: $isActive) {
-                    EmptyView()
+                VStack {
+                    Text("Lost and Found")
+                        .font(.largeTitle)
+                        .bold()
+                        .padding()
+                    
+                    TextField("Username", text: $username)
+                        .padding()
+                        .frame(width: 300, height: 50)
+                        .background(Color.black.opacity(0.05))
+                        .cornerRadius(10)
+                        .border(.red, width: CGFloat(wrongUsername))
+                        
+                    
+                    SecureField("Password", text: $password)
+                        .padding()
+                        .frame(width: 300, height: 50)
+                        .background(Color.black.opacity(0.05))
+                        .cornerRadius(10)
+                        .border(.red, width: CGFloat(wrongPassword))
+                    
+                    Button("Login") {
+                        login()
+                        }
+                    .foregroundColor(.white)
+                    .frame(width: 300, height: 50)
+                    .background(Color.blue)
+                    .cornerRadius(10)
+                    
+                    NavigationLink(destination: MainView(username: username).environmentObject(PostData()), isActive: $isActive) {
+                        EmptyView()
+                    }
                 }
-            }
-            .padding()
+            }.navigationBarHidden(true)
         }
     }
     
@@ -83,10 +83,4 @@ struct LoginView: View {
 struct UserCredentials: Codable {
     let username: String
     let password: String
-}
-
-#Preview {
-    
-    LoginView()
-    
 }

@@ -52,7 +52,3 @@ struct PostHistoryView: View {
         .navigationTitle("Claimed Items")
     }
 }
-
-#Preview{
-    PostHistoryView(username: "Test").environmentObject(PostData())
-}

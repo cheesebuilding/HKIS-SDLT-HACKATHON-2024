@@ -15,6 +15,8 @@ class PostData: ObservableObject {
     @Published var activePosts: [Post] = []
     @Published var claimedPosts: [Post] = []
     @Published var selectedButtons: [UUID: String] = [:]
+    @Published var sortOption = 0
+    @Published var searchText = ""
     @Published var posts: [Post] = [] {
         didSet {
             let encoder = JSONEncoder()
@@ -28,6 +30,21 @@ class PostData: ObservableObject {
             }
         }
     }
+    var sortedAndFilteredPosts: [Post] {
+        var sortedPosts = posts.sorted {
+            switch sortOption {
+            case 0: return $0.foundLocation < $1.foundLocation
+            case 1: return $0.foundLocation > $1.foundLocation
+            default: return false
+            }
+        }
+
+        if !searchText.isEmpty {
+            sortedPosts = sortedPosts.filter { $0.itemName.contains(searchText) }
+        }
+
+        return sortedPosts
+    }
     
     init() {
         loadUsernames()
@@ -38,6 +55,7 @@ class PostData: ObservableObject {
             self.posts = decoded
         }
     }
+    
     func claimPost(at index: Int, by user: String) {
             posts[index].claimed = true
             posts[index].claimedBy = user
@@ -85,15 +103,35 @@ struct MainView: View {
     @EnvironmentObject var postData: PostData
     @State var username: String
     @State private var activeSheet: ActiveSheet?
+    @State private var selectedCategory: Category = .other
 
     var body: some View {
         NavigationView {
-            ScrollView {
-                VStack(spacing: 25) {
-                    ForEach(postData.posts.indices, id: \.self) { index in
-                        BoxView(post: postData.posts[index], index: index, username: username)
+            VStack {
+                Picker("Category", selection: $selectedCategory) {
+                    ForEach(Category.allCases, id: \.self) {
+                        Text($0.rawValue.capitalized)
                     }
                 }
+                .pickerStyle(SegmentedPickerStyle())
+                .padding()
+
+                TextField("Search", text: $postData.searchText)
+                    .padding()
+                    .background(Color(.systemGray6))
+                    .cornerRadius(5.0)
+                    .padding(.bottom, 20)
+
+                ScrollView {
+                    VStack(spacing: 25) {
+                        ForEach(postData.sortedAndFilteredPosts.indices, id: \.self) { index in
+                            if postData.sortedAndFilteredPosts[index].category == selectedCategory {
+                                BoxView(post: postData.sortedAndFilteredPosts[index], index: index, username: username)
+                            }
+                        }
+                    }
+                }
+                .padding(.horizontal, 20)
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
@@ -215,8 +253,4 @@ struct BoxView: View {
             .transition(.move(edge: .bottom))
         }
     }
-}
-#Preview{
-    MainView(username: "").environmentObject(PostData())
-    
 }
